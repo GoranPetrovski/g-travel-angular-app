@@ -1,0 +1,104 @@
+<div class="row">
+  <div class="col-offset-3-md col-md-9">
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+
+    <mat-horizontal-stepper [linear]="isLinear">
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your personal details</ng-template>
+
+          <div class="row">
+            <div class="col-md-6 col-offset-3-md ">
+              <mat-card>
+                <div>
+                  <mat-form-field>
+                    <input matInput placeholder="First name" formControlName="firstName" required>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Last name" formControlName="lastName" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field>
+                    <input matInput placeholder="City" formControlName="city" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <mat-form-field>
+                    <input matInput placeholder="Phone number" formControlName="phoneNumber" required>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input matInput placeholder="Email" formControlName="email" required>
+                  </mat-form-field>
+                </div>
+                <div>
+                  <button mat-button matStepperNext>Next</button>
+                </div>
+              </mat-card>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out your travel details</ng-template>
+           <mat-card>
+          <div>
+            <mat-form-field>
+              <mat-select placeholder="Select your location" [(ngModel)]="locationCity" formControlName="locationCity" required name="location">
+                <mat-option *ngFor="let location of cities" [value]="location.name">
+                  {{ location.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-select placeholder="Select your destionation" [(ngModel)]="destionationCity" formControlName="destionationCity" required
+                name="destionation">
+                <mat-option *ngFor="let destination of cities" [value]="destination.name">
+                  {{destination.name}}
+                </mat-option>
+                </mat-select>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <mat-select placeholder="Hours" [(ngModel)]="hours" formControlName="hours" required name="hours">
+                <mat-option *ngFor="let hour of timeHours" [value]="hour">
+                  {{hour}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-select placeholder="Minutes" [(ngModel)]="minutes" formControlName="minutes" required name="minutes">
+                <mat-option *ngFor="let minutes of timeMinutes" [value]="minutes">
+                  {{minutes}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+          </div>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+           </mat-card>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        You are now done.
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+
+  </div>
+
+</div>

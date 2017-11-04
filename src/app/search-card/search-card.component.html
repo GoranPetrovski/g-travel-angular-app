@@ -1,0 +1,101 @@
+<mat-card class="bus-ticket-card">
+ <mat-card-title>Book bus tickets online</mat-card-title>
+ <mat-card-content>
+ <!--<form (ngSubmit)="onSubmit()" #searchForm="ngForm">
+ <div>
+ <mat-radio-group name="tripType" [(ngModel)]="model.tripType" required>
+ <mat-radio-button value="0">One way</mat-radio-button>
+ <mat-radio-button value="1">Round trip</mat-radio-button>
+ </mat-radio-group>
+ </div>
+ <div>
+ <mat-input-container>
+ <input matInput name="origin" placeholder="Origin" [(ngModel)]="model.origin" required>
+ </mat-input-container>
+ <mat-input-container>
+ <input matnput name="destination" placeholder="Destination" [(ngModel)]="model.destination" required>
+ </mat-input-container>
+ </div>
+ <div>
+   <mat-input-container>
+ <input matInput name="departureDate" [(ngModel)]="model.departureDate" [matDatepicker]="departPicker" placeholder="Depart:" required>
+ <mat-datepicker-toggle matSuffix [for]="departPicker"></mat-datepicker-toggle>
+ </mat-input-container>
+ <mat-datepicker [startAt]="model.departureDate" #departPicker></mat-datepicker>
+<mat-input-container>
+<input matInput name="arrivalDate" [(ngModel)]="model.arrivalDate" [matDatepicker]="returnPicker" placeholder="Return:" required>
+ <mat-datepicker-toggle matSuffix [for]="returnPicker"></mat-datepicker-toggle>
+ </mat-input-container>
+ <mat-datepicker [startAt]="model.arrivalDate" #returnPicker></mat-datepicker>
+ </div>
+ <button mat-raised-button color="accent" [disabled]="!searchForm.form.valid">Let's Go</button>
+ </form>-->
+
+
+
+<form>
+  <mat-form-field>
+    <mat-select placeholder="Select your location" [(ngModel)]="locationCity" name="location">
+      <mat-option *ngFor="let location of cities" [value]="location.name">
+        {{ location.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Select your destionation" [(ngModel)]="destionationCity" name="destionation">
+      <mat-option *ngFor="let destination of cities" [value]="destination.name">
+        {{destination.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>
+
+<mat-radio-group class="example-radio-group" [(ngModel)]="travelDate">
+  <mat-radio-button class="example-radio-button" *ngFor="let date of selectDate" [value]="date">
+    {{date}}
+  </mat-radio-button>
+</mat-radio-group>
+<hr>
+<div *ngIf="travelDate=='Date' else elseBlock">
+  <mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+</div>
+<ng-template #elseBlock>
+<mat-form-field>
+  <input matInput [matDatepicker]="dateFrom" placeholder="Choose a date from">
+  <mat-datepicker-toggle matSuffix [for]="dateFrom"></mat-datepicker-toggle>
+  <mat-datepicker #dateFrom></mat-datepicker>
+</mat-form-field>
+
+<mat-form-field>
+  <input matInput [matDatepicker]="dateTo" placeholder="Choose a date To">
+  <mat-datepicker-toggle matSuffix [for]="dateTo"></mat-datepicker-toggle>
+  <mat-datepicker #dateTo></mat-datepicker>
+</mat-form-field>
+
+</ng-template>
+
+<div class="row">
+  <div class="col-md-3 col-offset-9-md">
+    <button mat-raised-button color="primary">Primary</button>
+  </div> 
+</div>
+
+<!--<mat-progress-spinner
+        class="example-margin"
+        [color]="primary"
+        [mode]="indeterminate"
+        >
+    </mat-progress-spinner>-->
+    <div *ngIf="travelDate!='Date'">
+    <mat-spinner></mat-spinner>
+    </div>
+
+ </mat-card-content>
+</mat-card>
+
+
