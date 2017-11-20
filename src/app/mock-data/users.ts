@@ -1,9 +1,7 @@
 import { User } from '../travels/shared/user.model';
-import uuid = require("uuid");
 
-
-const userG: User = {
-    id: uuid.v4(),
+export const userG: User = {
+    id: "u1",
     firstName: "Goran",
     lastName: "Petrovski",
     email: "goksi@gmail.com",
@@ -12,5 +10,3 @@ const userG: User = {
 }
 const users: User[] = [];
 users.push(userG);
-
-export = users;
