@@ -2,13 +2,15 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
 import {CreateItemComponent} from './create-item/create-item.component';
+import {TravelCardComponent} from './travel-card/travel-card.component';
+
 import {AppConfig} from './config/app.config';
 //import {Error404Component} from './core/error404/error-404.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/create', pathMatch: 'full'},
   {path: 'create', component: CreateItemComponent},
-  {path: 'travels', component: CreateItemComponent},
+  {path: 'travels', component: TravelCardComponent},
   //{path: AppConfig.routes.heroes, loadChildren: './heroes/heroes.module#HeroesModule'},
   //{path: AppConfig.routes.error404, component: Error404Component},
 

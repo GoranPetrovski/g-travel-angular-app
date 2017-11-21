@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchCardInterface } from './search-card.interface';
 import {SearchService} from './search.service';
+import {cities} from '../mock-data/cities';
 
 
 @Component({
@@ -10,12 +11,14 @@ import {SearchService} from './search.service';
 })
 export class SearchCardComponent implements OnInit {
   model: SearchCardInterface;
+  private cities;
 
   constructor(private service: SearchService) { }
 
   ngOnInit() {
     this.model = {tripType: '0', origin: 'Bangalore', destination: 'Hyderabad', departureDate: new Date(),
     arrivalDate: new Date()};
+    this.cities = cities
   }
 
   onSubmit() {
@@ -32,20 +35,5 @@ export class SearchCardComponent implements OnInit {
   selectedValue: string;
   locationCity: string;
   destionationCity: string;
-
-  foods = [
-    {value: 'steak-0', viewValue: 'Steak'},
-    {value: 'pizza-1', viewValue: 'Pizza'},
-    {value: 'tacos-2', viewValue: 'Tacos'}
-  ];
-
-  cities = [{
-    name: 'Skopje' 
-  },{
-    name: 'Probistip'
-  },{
-    name: 'Bitola'
-  }, {
-    name: 'Ohrid'
-  }];
+  
 }

@@ -14,6 +14,8 @@ import {MatButtonModule, MatCardModule, MatDatepickerModule, MatInputModule, Mat
    MatToolbarModule } from '@angular/material';
 import { MaterialModule } from './material.module';
 import { CreateItemComponent } from './create-item/create-item.component';
+import { TravelCardComponent } from './travel-card/travel-card.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {HttpClient, HttpClientModule} from '@angular/common/http';
@@ -28,6 +30,7 @@ import {AppRoutingModule} from './app-routing.module';
     AppComponent,
     SearchCardComponent,
     CreateItemComponent,
+    TravelCardComponent,
     NavComponent,
     FooterComponent
   ],

@@ -34,7 +34,7 @@ const travel2: Travel = {
     likes: 9
 };
 
-const travels: Travel[] = [
+export const travels: Travel[] = [
     travel1,
     travel2
 ];
